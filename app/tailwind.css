@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --main: 222.2 47.4% 11.2%;
+    --mild-main: 215.3 25% 26.7%;
+    --pale-main: 215.4 16.3% 46.9%;
+    --secondary: 210 40% 96.1%;
+    --contrast: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --border: 214.3 31.8% 91.4%;
+    --ring: 214.3 31.8% 91.4%;
+    --shadow: 222.2 47.4% 11.2%;
+
+    --primary-main: 222.2 47.4% 11.2%;
+    --primary-mild-main: 215.3 25% 26.7%;
+    --primary-pale-main: 215.4 16.3% 46.9%;
+    --primary-secondary: 210 40% 96.1%;
+    --primary-contrast: 0 0% 100%;
+    --primary-accent: 210 40% 96.1%;
+    --primary-border: 212.7 26.8% 83.9%;
+    --primary-ring: 214.3 31.8% 91.4%;
+    --primary-shadow: 222.2 47.4% 11.2%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  * {
+    @apply m-0;
+  }
+
+  html,
+  body {
+    @apply font-inter h-full;
+  }
+
+  body {
+    @apply leading-normal antialiased min-h-full transition-colors;
+    color: var(--main);
+    background-color: var(--contrast);
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    @apply block max-w-full;
+  }
+
+  /* Remove built-in form typography styles */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  .root {
+    @apply isolate;
+  }
+}
