@@ -18,6 +18,7 @@ interface TabsProps
   extends React.ComponentPropsWithoutRef<typeof RadixTabsPrimitive.Root> {
   id: string;
   url: string;
+  defaultValue: string;
 }
 
 const TabsPrimitive = React.forwardRef<TabsRef, TabsProps>(

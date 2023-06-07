@@ -1,3 +1,3 @@
-export type ThemeComponent = {
+export type CottonComponent = {
   theme?: string;
 };
