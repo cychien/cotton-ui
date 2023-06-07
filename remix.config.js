@@ -20,4 +20,13 @@ module.exports = {
     v2_routeConvention: true,
     unstable_tailwind: true,
   },
+
+  mdx: async () => {
+    const [rehypeSlug] = await Promise.all([
+      import("rehype-slug").then((mod) => mod.default),
+    ]);
+    return {
+      rehypePlugins: [rehypeSlug],
+    };
+  },
 };

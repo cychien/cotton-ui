@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  content: ["./app/**/*.{js,jsx,ts,tsx,mdx}"],
   theme: {
     screens: {
       sm: "640px",
@@ -33,6 +33,8 @@ module.exports = {
           secondary: "hsl(var(--secondary) / <alpha-value>)",
           contrast: "hsl(var(--contrast) / <alpha-value>)",
           accent: "hsl(var(--accent) / <alpha-value>)",
+          "mild-accent": "hsl(var(--mild-accent) / <alpha-value>)",
+          "pale-accent": "hsl(var(--pale-accent) / <alpha-value>)",
           border: "hsl(var(--border) / <alpha-value>)",
           ring: "hsl(var(--ring) / <alpha-value>)",
           shadow: "hsl(var(--shadow) / <alpha-value>)",
@@ -51,5 +53,10 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms")({
+      strategy: "class", // only generate classes
+    }),
+  ],
 };

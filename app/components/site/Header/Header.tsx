@@ -6,13 +6,16 @@ function Header() {
   return (
     <header className="border-b border-basic-border py-4">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <Link to="/" className="flex">
-            <span className="h-8 w-8 flex-shrink-0 rounded-full bg-basic-main" />
-          </Link>
+        <Link to="/" prefetch="intent" className="flex items-center space-x-2">
+          <span className="h-8 w-8 flex-shrink-0 rounded-full bg-basic-main" />
           <span className="font-medium text-basic-main">Cotton UI</span>
-        </div>
-        <a href="/" className="text-basic-pale-main hover:text-basic-mild-main">
+        </Link>
+        <a
+          href="https://github.com/cychien/cotton-ui"
+          target="_blank"
+          rel="noreferrer"
+          className="text-basic-secondary hover:text-basic-pale-main"
+        >
           <GithubFilled />
         </a>
       </div>

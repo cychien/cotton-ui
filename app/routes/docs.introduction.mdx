@@ -1,0 +1,43 @@
+---
+meta:
+  - { title: Introduction }
+  - { description: Cotton UI is a collection of progressively enhanced components that ensure immediate usability even before hydration. Upon hydration these components seamlessly transition into accessible and better UX versions powered by Javascript. All without users noticing any disruption. }
+headers:
+  Cache-Control: no-cache
+---
+
+import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, TableOfContents } from "~/routes/docs/mdx";
+
+<ContentLayout>
+  <MainContentLayout>
+    <ArticleLayout section="Getting Started" title="Introduction">
+
+**Cotton UI** is a collection of progressively enhanced components that ensure immediate usability even before hydration. Upon hydration, these components seamlessly transition into accessible and better UX versions powered by Javascript, all without users noticing any disruption.
+
+## Why use Cotton
+
+- **Short Time to Interactive(TTI)**: Regardless of the quality of a user's network connection, the only loading time they will experience is for HTML and CSS. There's no need to wait for JavaScript.
+- **Seamless Components Transformation**: Before components get hydrated, Cotton provides immediate usability through HTML and CSS tricks. However this method can sometimes be not accessible. To address this, Cotton automatically transforms components into their hydrated versions once JavaScript is loaded, ensuring a smooth process that doesn't bother users.
+- **Headless Components**: Cotton provides a set of headless components, allowing you to build any custom components on top of the Cotton.
+- **Ready-to-Use Styled Components:**: If speed is your priority, Cotton also offers a set of pre-styled components that are not only aesthetically pleasing but also easily customizable.
+
+---
+
+## Credits
+
+- [daisyUI](https://daisyui.com): Show me how to make component function only by HTML & CSS
+- [Radix UI](https://www.radix-ui.com): Handle hard but essential accessibility problems of components.
+- [shadcn/ui](https://ui.shadcn.com): A major source of inspiration for the appearance.
+
+<small />
+
+    </ArticleLayout>
+    <PreviousNextContent 
+      next={{title: 'Installation', href: '/docs/installation'}}
+    />
+  </MainContentLayout>
+  <TableOfContents headings={[
+    {title: 'Why use Cotton', id: 'why-use-cotton'},
+    {title: 'Credits', id: 'credits'}
+  ]}/>
+</ContentLayout>

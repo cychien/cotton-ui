@@ -1,0 +1,85 @@
+---
+meta:
+  - { title: Theming }
+  - { description: Theming gives your web app its own special look and feel. In Cotton making themes is super easy. }
+headers:
+  Cache-Control: no-cache
+---
+
+import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, TableOfContents, CodeBlock } from "~/routes/docs/mdx";
+
+<ContentLayout>
+  <MainContentLayout>
+    <ArticleLayout section="Getting Started" title="Theming">
+
+Theming gives your web app its own special look and feel. In Cotton, making themes is super easy.
+
+## Convention
+
+We style things using CSS variable. You need to make at least one theme, called the `primary` theme. If you don't choose a theme for a component, Cotton will automatically use this `primary` theme.
+
+<CodeBlock>
+{`\
+  :root {
+    --primary-main: 222.2 47.4% 11.2%;
+    --primary-mild-main: 215.3 25% 26.7%;
+    --primary-pale-main: 215.4 16.3% 46.9%;
+    --primary-secondary: 210 40% 96.1%;
+    --primary-contrast: 0 0% 100%;
+    --primary-accent: 210 40% 96.1%;
+    --primary-border: 212.7 26.8% 83.9%;
+    --primary-ring: 214.3 31.8% 91.4%;
+    --primary-shadow: 222.2 47.4% 11.2%;
+  }  
+`}
+</CodeBlock>
+
+You can still make as many different themes as you want:
+
+<CodeBlock>
+{`\
+  :root {
+    --primary-main: 222.2 47.4% 11.2%;
+    --primary-mild-main: 215.3 25% 26.7%;
+    --primary-pale-main: 215.4 16.3% 46.9%;
+    --primary-secondary: 210 40% 96.1%;
+    --primary-contrast: 0 0% 100%;
+    --primary-accent: 210 40% 96.1%;
+    --primary-border: 212.7 26.8% 83.9%;
+    --primary-ring: 214.3 31.8% 91.4%;
+    --primary-shadow: 222.2 47.4% 11.2%;
+
+    --danger-main: 222.2 47.4% 11.2%;
+    --danger-mild-main: 215.3 25% 26.7%;
+    --danger-pale-main: 215.4 16.3% 46.9%;
+    --danger-secondary: 210 40% 96.1%;
+    --danger-contrast: 0 0% 100%;
+    --danger-accent: 210 40% 96.1%;
+    --danger-border: 212.7 26.8% 83.9%;
+    --danger-ring: 214.3 31.8% 91.4%;
+    --danger-shadow: 222.2 47.4% 11.2%;
+  }  
+`}
+</CodeBlock>
+
+## Apply theme on component
+
+Normally, each component will use the `primary` theme. But if you want a certain component to have its own unique theme, just pass `theme` props to that component.
+
+<CodeBlock>
+{`\
+  <Button theme="danger">Delete</Button>
+`}
+</CodeBlock>
+
+    </ArticleLayout>
+    <PreviousNextContent 
+      previous={{title: 'Installation', href: '/docs/installation'}}
+      next={{title: 'Button', href: '/docs/button'}}
+    />
+  </MainContentLayout>
+  <TableOfContents headings={[
+    {title: 'Convention', id: 'convention'},
+    {title: 'Apply theme on component', id: 'apply-theme-on-component'},
+  ]}/>
+</ContentLayout>

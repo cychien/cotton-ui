@@ -23,7 +23,7 @@ export const links: LinksFunction = () => [
   {
     rel: "stylesheet",
     crossOrigin: "anonymous",
-    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend:wght@400;500&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lexend:wght@400;500&display=swap",
   },
 ];
 

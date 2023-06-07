@@ -1,0 +1,38 @@
+---
+meta:
+  - { title: Button }
+  - { description: Button represents a clickable element that users can interact with to perform an action or trigger an event. }
+headers:
+  Cache-Control: no-cache
+---
+
+import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, TableOfContents, CodeBlock } from "~/routes/docs/mdx";
+import { InteractiveComponent } from './InteractiveComponent'
+
+<ContentLayout>
+  <MainContentLayout>
+    <ArticleLayout section="Components" title="Button" forComponent>
+
+Button represents a clickable element that users can interact with to perform an action or trigger an event.
+
+---
+
+<InteractiveComponent />
+
+## Usage
+
+<CodeBlock>{`\
+  <Button>Button</Button>
+`}</CodeBlock>
+
+    </ArticleLayout>
+    <PreviousNextContent 
+      previous={{title: 'Theming', href: '/docs/theming'}} 
+      next={{title: 'Tabs', href: '/docs/tabs'}}
+    />
+  </MainContentLayout>
+  <TableOfContents headings={[
+    {title: 'Props', id: 'props'},
+    {title: 'Usage', id: 'usage'}
+  ]}/>
+</ContentLayout>
