@@ -1,5 +1,7 @@
 {
+  "name": "cotton-ui",
   "private": true,
+  "workspaces": ["lib"],
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
