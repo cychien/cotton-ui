@@ -1,7 +1,7 @@
 ---
 meta:
   - { title: Introduction }
-  - { description: Cotton UI is a collection of progressively enhanced components that ensure immediate usability even before hydration. Upon hydration these components seamlessly transition into accessible and better UX versions powered by Javascript. All without users noticing any disruption. }
+  - { description: Cotton UI is a component library that offers progressively enhanced components. }
 headers:
   Cache-Control: no-cache
 ---
@@ -12,22 +12,18 @@ import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, T
   <MainContentLayout>
     <ArticleLayout section="Getting Started" title="Introduction">
 
-**Cotton UI** is a collection of progressively enhanced components that ensure immediate usability even before hydration. Upon hydration, these components seamlessly transition into accessible and better UX versions powered by Javascript, all without users noticing any disruption.
+**Cotton UI** is a component library that offers **progressively enhanced components**.
 
-## Why use Cotton
+These components are functional prior to hydration and automatically upgrade to a more feature-rich version once JavaScript is loaded. The whole process ensures no disruption to users, maintaining a positive user experience.
 
-- **Short Time to Interactive(TTI)**: Regardless of the quality of a user's network connection, the only loading time they will experience is for HTML and CSS. There's no need to wait for JavaScript.
-- **Seamless Components Transformation**: Before components get hydrated, Cotton provides immediate usability through HTML and CSS tricks. However this method can sometimes be not accessible. To address this, Cotton automatically transforms components into their hydrated versions once JavaScript is loaded, ensuring a smooth process that doesn't bother users.
-- **Headless Components**: Cotton provides a set of headless components, allowing you to build any custom components on top of the Cotton.
-- **Ready-to-Use Styled Components:**: If speed is your priority, Cotton also offers a set of pre-styled components that are not only aesthetically pleasing but also easily customizable.
+This means that even in areas with poor internet connectivity, users can still interact with the UI elements, such as opening dropdown menus or switching tabs. As soon as JavaScript is loaded, these components become even more powerful, supporting additional features like keyboard navigation and focus trapping. Furthermore, any actions users take in low-connectivity situations, such as entering text in an input field, will be preserved through the hydration process.
 
----
+## Features
 
-## Credits
-
-- [daisyUI](https://daisyui.com): Show me how to make component function only by HTML & CSS
-- [Radix UI](https://www.radix-ui.com): Handle hard but essential accessibility problems of components.
-- [shadcn/ui](https://ui.shadcn.com): A major source of inspiration for the appearance.
+- ⚡️ Ensure uninterrupted user interactions, even in low-connectivity areas
+- 🚀 Upgrade to advanced features like keyboard navigation once JavaScript is available
+- ✨ User actions retained during hydration
+- 🎨 Are headless components, allowing for flexible styling
 
 <small />
 
@@ -37,7 +33,6 @@ import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, T
     />
   </MainContentLayout>
   <TableOfContents headings={[
-    {title: 'Why use Cotton', id: 'why-use-cotton'},
-    {title: 'Credits', id: 'credits'}
+    {title: 'Features', id: 'features'},
   ]}/>
 </ContentLayout>

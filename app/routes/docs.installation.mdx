@@ -1,7 +1,7 @@
 ---
 meta:
   - { title: Installation }
-  - { description: The only way to install Cotton components is to copy paste what you need from Cotton repository currently. }
+  - { description: Intall easily with npm. }
 headers:
   Cache-Control: no-cache
 ---
@@ -12,40 +12,25 @@ import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, T
   <MainContentLayout>
     <ArticleLayout section="Getting Started" title="Installation">
 
-Currently, the only way to install Cotton components is to copy paste what you need from [the repository](https://github.com/cychien/cotton-ui/tree/master/app/components/cotton).
-
-Here are the detailed steps:
-
-1. Create a folder named `cotton` within your `components` directory.
-2. Copy the contents of `types.ts`, `utils.ts` and any component of your choice into the `cotton` folder.
-3. Define themes with css variable. Here is a minimum setup:
+Install from your command line:
 
 <CodeBlock>
 {`\
-  :root {
-    --primary-main: 222.2 47.4% 11.2%;
-    --primary-mild-main: 215.3 25% 26.7%;
-    --primary-pale-main: 215.4 16.3% 46.9%;
-    --primary-secondary: 210 40% 96.1%;
-    --primary-contrast: 0 0% 100%;
-    --primary-accent: 210 40% 96.1%;
-    --primary-border: 212.7 26.8% 83.9%;
-    --primary-ring: 214.3 31.8% 91.4%;
-    --primary-shadow: 222.2 47.4% 11.2%;
-  }  
+  npm install @cychien/cotton-ui
 `}
 </CodeBlock>
 
-4. Install necessary dependencies.
+And import to your code:
 
-There's also a plan to turn Cotton into an easy to use library. Stay tuned!
-
+<CodeBlock>
+{`\
+  import { Tabs } from '@cychien/cotton-ui';
+`}
+</CodeBlock>
     </ArticleLayout>
     <PreviousNextContent 
       previous={{title: 'Introduction', href: '/docs/introduction'}}
     />
   </MainContentLayout>
-  <TableOfContents headings={[
-    {title: 'Steps', id: 'steps'},
-  ]}/>
+  <TableOfContents headings={[]}/>
 </ContentLayout>
