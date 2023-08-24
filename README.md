@@ -8,6 +8,7 @@ This means that even in areas with poor internet connectivity, users can still i
 
 ## Features
 
-- 💫 Ensure uninterrupted user interactions, even in low-connectivity areas
+- ⚡️ Ensure uninterrupted user interactions, even in low-connectivity areas
 - 🚀 Upgrade to advanced features like keyboard navigation once JavaScript is available
+- ✨ Actions taken by users under low-connectivity, like text input, remain intact throughout the hydration process.
 - 🎨 Are headless components, allowing for flexible styling
