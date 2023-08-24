@@ -1,12 +1,13 @@
 # Cotton UI
 
-Cotton UI is a component library featuring progressively enhanced components. 
+Cotton UI is a component library that offers progressively enhanced components. 
 
-These components can function even before hydration and automatically transform into more complete versions when JavaScript loads in. The whole process ensures there's no disruption to users or negative impact on user experience.
+These components are functional prior to hydration and automatically upgrade to a more feature-rich version once JavaScript is loaded. The whole process ensures no disruption to users, maintaining a positive user experience.
 
-Cotton UI offers 2 different versions of any components:
+This means that even in areas with poor internet connectivity, users can still interact with the UI elements, such as opening dropdown menus or switching tabs. As soon as JavaScript is loaded, these components become even more powerful, supporting additional features like keyboard navigation and focus trapping. Furthermore, any actions users take in low-connectivity situations, such as entering text in an input field, will be preserved through the hydration process.
 
-- Styled version: For people who want to build fast. We use [shadcn/ui](https://ui.shadcn.com) style.
-- Headless version: For people who want to customize a lot.
+## Features
 
-
+- 💫 Ensure uninterrupted user interactions, even in low-connectivity areas
+- 🚀 Upgrade to advanced features like keyboard navigation once JavaScript is available
+- 🎨 Are headless components, allowing for flexible styling
