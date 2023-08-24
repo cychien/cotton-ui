@@ -42,7 +42,7 @@ const TabsPrimitive = React.forwardRef<TabsRef, TabsProps>(
   ({ id, url, value, ...props }, ref) => {
     return (
       <TabsContextProvider value={{ id, url, value }}>
-        <RadixTabsPrimitive.Root ref={ref} id={id} {...props} />
+        <RadixTabsPrimitive.Root ref={ref} id={id} value={value} {...props} />
       </TabsContextProvider>
     );
   }

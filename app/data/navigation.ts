@@ -16,14 +16,6 @@ export const navigation: Navigation = [
     links: [
       { title: "Introduction", href: "/docs/introduction" },
       { title: "Installation", href: "/docs/installation" },
-      { title: "Theming", href: "/docs/theming" },
-    ],
-  },
-  {
-    title: "Components",
-    links: [
-      { title: "Button", href: "/docs/button" },
-      { title: "Tabs", href: "/docs/tabs" },
     ],
   },
 ];
