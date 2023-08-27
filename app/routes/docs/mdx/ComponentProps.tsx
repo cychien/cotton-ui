@@ -47,7 +47,7 @@ function ComponentProp({
   children,
 }: ComponentPropProps) {
   return (
-    <div className="flex items-start justify-between space-x-12 py-6 first:pt-4">
+    <div className="flex flex-col items-start justify-between space-y-4 py-6 first:pt-4 sm:flex-row sm:space-x-12 sm:space-y-0">
       <div>
         <div className="flex items-baseline">
           <span className="text-sm font-bold">{name}</span>

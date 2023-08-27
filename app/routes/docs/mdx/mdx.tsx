@@ -18,7 +18,7 @@ type MainContentLayoutProps = {
 function MainContentLayout(props: MainContentLayoutProps) {
   return (
     <div
-      className="flex min-h-full min-w-0 max-w-2xl flex-auto flex-col py-9 pt-16 md:px-4 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16"
+      className="flex min-h-full min-w-0 max-w-2xl flex-auto flex-col py-9 pt-12 md:px-4 lg:max-w-none lg:pl-8 lg:pr-0 lg:pt-16 xl:px-16"
       {...props}
     />
   );

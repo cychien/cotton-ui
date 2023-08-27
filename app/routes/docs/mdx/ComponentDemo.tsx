@@ -36,7 +36,7 @@ function ComponentDemo({ code, children }: ComponentDemoProps) {
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
         <TabsContent value="preview">
-          <div className="relative flex min-h-[180px] items-center justify-center rounded-md border border-slate-200 bg-[url('/assets/dots-bg.svg')] px-4 py-20">
+          <div className="relative flex min-h-[180px] items-center justify-center overflow-x-auto rounded-md border border-slate-200 bg-[url('/assets/dots-bg.svg')] px-4 py-20">
             {hydrated && (
               <div className="absolute right-4 top-4 flex items-center space-x-2">
                 <label

@@ -1,6 +1,6 @@
 function Recipes() {
   return (
-    <div className="not-prose mt-8 grid grid-cols-3 gap-6">
+    <div className="not-prose mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
       <a
         href="https://justincy.com/articles/anitabs"
         target="_blank"
