@@ -54,6 +54,7 @@ function Prose({ className, children }: ProseProps) {
 type ArticleLayoutProps = {
   section: string;
   title: string;
+  description: string;
   forComponent?: boolean;
   children: React.ReactNode;
 };
@@ -61,6 +62,7 @@ type ArticleLayoutProps = {
 function ArticleLayout({
   section,
   title,
+  description,
   forComponent = false,
   children,
 }: ArticleLayoutProps) {
@@ -75,14 +77,18 @@ function ArticleLayout({
           {title}
         </h1>
       </header>
-      <Prose
-        className={cn({
-          "prose-h2:mt-16 prose-hr:first-of-type:mb-6 prose-hr:first-of-type:mt-8":
-            forComponent,
-        })}
-      >
-        {children}
-      </Prose>
+      <div className={cn({ "mt-9 divide-y divide-slate-200": description })}>
+        {description && <p className="mb-12 text-slate-700">{description}</p>}
+        <Prose
+          className={cn({
+            "prose-h2:mt-16 prose-li:my-0 prose-hr:first-of-type:mb-6 prose-hr:first-of-type:mt-8":
+              forComponent,
+            "pt-8": !!description,
+          })}
+        >
+          {children}
+        </Prose>
+      </div>
     </article>
   );
 }
@@ -171,8 +177,8 @@ type CodeBlockProps = {
 
 function CodeBlock({ children }: CodeBlockProps) {
   return (
-    <div className="not-prose mt-3 w-full overflow-x-auto rounded-md border border-slate-200 py-4">
-      <pre>
+    <div className="not-prose mt-3 max-h-[500px] w-full overflow-x-auto rounded-md border border-slate-200 py-4">
+      <pre className="whitespace-pre-wrap">
         <code className="block text-sm">{children}</code>
       </pre>
     </div>

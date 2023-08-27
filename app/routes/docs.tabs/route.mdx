@@ -1,0 +1,61 @@
+---
+meta:
+  - { title: Tabs }
+  - { description: }
+headers:
+  Cache-Control: no-cache
+---
+
+import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, TableOfContents, CodeBlock, ComponentDemo, ComponentIntro, ComponentProps } from "~/routes/docs/mdx";
+import { Tabs, tabsCode, tabsAnatomy, TabsProps, TabsProvider } from './Tabs'
+import { Recipes } from './Recipes'
+
+<ContentLayout>
+  <MainContentLayout>
+    <ArticleLayout 
+      section="Components" 
+      title="Tabs" 
+      description='Tabs allow users to navigate to specific content sections. Before hydration, each tab functions as a link, and every click triggers a server-side render of the current page. Once hydration is complete, switching between tabs becomes a client-side action, similar to what you typically see.' 
+      forComponent
+    >
+      <ComponentIntro>
+        <TabsProvider>
+          <ComponentDemo code={tabsCode}>
+            <Tabs />
+          </ComponentDemo>
+          <ComponentProps radixName='Tabs'>  
+            <TabsProps />
+          </ComponentProps>
+        </TabsProvider>
+      </ComponentIntro>
+
+      ## Usage
+
+      <CodeBlock>{tabsAnatomy}</CodeBlock>
+
+      ## Behaviors
+
+      <b className='text-slate-400 text-sm'>Before hydration</b>
+      - All tabs are implemented as \<a\> tags, so when a tab is clicked, the user will be redirected to the same page with different content
+
+      <b className='text-slate-400 text-sm'>After hydration</b>
+      - Supports keyboard navigation
+      - Can access the active value from tabs when the active tab changes
+      - Preserves all internal states, including user actions on tabs before hydration. For example, the checkbox state will be brought from the unhydrated world to the hydrated world
+
+      ## Recipes
+
+      Examples you can implement based on Cotton UI Tabs. <span className='text-slate-400'>(currently only in Chinese)</span>
+
+      <Recipes />
+    </ArticleLayout>
+    <PreviousNextContent 
+      previous={{title: 'Installation', href: '/docs/installation'}}
+    />
+  </MainContentLayout>
+  <TableOfContents headings={[
+    {title: 'Usage', id: 'usage'},
+    {title: 'Behaviors', id: 'behaviors'},
+    {title: 'Recipes', id: 'recipes'},
+  ]}/>
+</ContentLayout>

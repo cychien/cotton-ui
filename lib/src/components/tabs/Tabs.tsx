@@ -36,10 +36,11 @@ interface TabsProps
   id: string;
   url: string;
   value: string;
+  isHydrtionDisabled?: boolean;
 }
 
 const TabsPrimitive = React.forwardRef<TabsRef, TabsProps>(
-  ({ id, url, value, ...props }, ref) => {
+  ({ id, url, value, isHydrtionDisabled, ...props }, ref) => {
     return (
       <TabsContextProvider value={{ id, url, value }}>
         <RadixTabsPrimitive.Root ref={ref} id={id} value={value} {...props} />
@@ -53,10 +54,12 @@ const TabsListPrimitive = RadixTabsPrimitive.List;
 
 type TabsTriggerRef = React.ElementRef<"a">;
 interface TabsTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof RadixTabsPrimitive.Trigger> {}
+  extends React.ComponentPropsWithoutRef<typeof RadixTabsPrimitive.Trigger> {
+  isHydrtionDisabled?: boolean;
+}
 
 const TabsTriggerPrimitive = React.forwardRef<TabsTriggerRef, TabsTriggerProps>(
-  ({ value, className, children, ...props }, ref) => {
+  ({ value, className, children, isHydrtionDisabled, ...props }, ref) => {
     const tabsContext = useTabsContext();
 
     const url = composeURL({
@@ -72,7 +75,9 @@ const TabsTriggerPrimitive = React.forwardRef<TabsTriggerRef, TabsTriggerProps>(
           href={url}
           className={className}
           onClick={(e) => {
-            e.preventDefault();
+            if (!isHydrtionDisabled) {
+              e.preventDefault();
+            }
           }}
         >
           {children}

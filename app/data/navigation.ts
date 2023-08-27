@@ -18,4 +18,8 @@ export const navigation: Navigation = [
       { title: "Installation", href: "/docs/installation" },
     ],
   },
+  {
+    title: "Components",
+    links: [{ title: "Tabs", href: "/docs/tabs" }],
+  },
 ];
