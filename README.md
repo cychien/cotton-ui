@@ -12,3 +12,9 @@ This means that even in areas with poor internet connectivity, users can still i
 - 🚀 Upgrade to advanced features like keyboard navigation once JavaScript is available
 - ✨ User actions retained during hydration
 - 🎨 Are headless components, allowing for flexible styling
+
+## Current Components
+
+- Tabs ✅
+- Image (WIP)
+- ...
