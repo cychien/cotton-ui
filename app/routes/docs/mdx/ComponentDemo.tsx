@@ -25,7 +25,8 @@ function ComponentDemo({ code, children }: ComponentDemoProps) {
     url: pathname + search,
     defaultValue: "preview",
   });
-  const { isHydrated, setIsHydrated } = useComponentDemoContext();
+  const { hasHydrationToggle, isHydrated, setIsHydrated } =
+    useComponentDemoContext();
   const hydrated = useHydrated();
 
   return (
@@ -37,7 +38,7 @@ function ComponentDemo({ code, children }: ComponentDemoProps) {
         </TabsList>
         <TabsContent value="preview">
           <div className="relative flex min-h-[180px] items-center justify-center overflow-x-auto rounded-md border border-slate-200 bg-[url('/assets/dots-bg.svg')] px-4 py-20">
-            {hydrated && (
+            {hasHydrationToggle && hydrated && (
               <div className="absolute right-4 top-4 flex items-center space-x-2">
                 <label
                   htmlFor="isHydrated-switch"
@@ -56,14 +57,16 @@ function ComponentDemo({ code, children }: ComponentDemoProps) {
             )}
             {children}
           </div>
-          <div className="mt-1 text-sm font-medium text-slate-500">
-            (After flipping the toggle, interact with the component to see the
-            changes)
-          </div>
+          {hasHydrationToggle && (
+            <div className="mt-1 text-sm font-medium text-slate-500">
+              (After flipping the toggle, interact with the component to see the
+              changes)
+            </div>
+          )}
         </TabsContent>
         <TabsContent value="code">
-          <div className="max-h-[500px] w-full max-w-full overflow-x-auto rounded-md border border-slate-200 py-4">
-            <pre className="whitespace-pre-wrap">
+          <div className="max-h-[500px] w-full max-w-[718px] overflow-x-auto rounded-md border border-slate-200 py-4 2xl:max-w-[776px]">
+            <pre>
               <code className="block text-sm">{code}</code>
             </pre>
           </div>

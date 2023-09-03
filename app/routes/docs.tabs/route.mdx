@@ -1,7 +1,7 @@
 ---
 meta:
   - { title: Tabs }
-  - { description: }
+  - { description: "Tabs allow users to navigate to specific content sections. Before hydration, each tab functions as a link, and every click triggers a server-side render of the current page. Once hydration is complete, switching between tabs becomes a client-side action, similar to what you typically see."}
 headers:
   Cache-Control: no-cache
 ---
@@ -18,12 +18,12 @@ import { Recipes } from './Recipes'
       description='Tabs allow users to navigate to specific content sections. Before hydration, each tab functions as a link, and every click triggers a server-side render of the current page. Once hydration is complete, switching between tabs becomes a client-side action, similar to what you typically see.' 
       forComponent
     >
-      <ComponentIntro>
+      <ComponentIntro hasHydrationToggle>
         <TabsProvider>
           <ComponentDemo code={tabsCode}>
             <Tabs />
           </ComponentDemo>
-          <ComponentProps radixName='Tabs'>  
+          <ComponentProps additionalPropsFrom='Radix UI Tabs' additionalPropsLink='https://www.radix-ui.com/primitives/docs/components/tabs'>  
             <TabsProps />
           </ComponentProps>
         </TabsProvider>
@@ -51,6 +51,7 @@ import { Recipes } from './Recipes'
     </ArticleLayout>
     <PreviousNextContent 
       previous={{title: 'Installation', href: '/docs/installation'}}
+      next={{title: 'Image', href: '/docs/image'}}
     />
   </MainContentLayout>
   <TableOfContents headings={[

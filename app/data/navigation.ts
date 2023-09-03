@@ -20,6 +20,9 @@ export const navigation: Navigation = [
   },
   {
     title: "Components",
-    links: [{ title: "Tabs", href: "/docs/tabs" }],
+    links: [
+      { title: "Tabs", href: "/docs/tabs" },
+      { title: "Image", href: "/docs/image" },
+    ],
   },
 ];

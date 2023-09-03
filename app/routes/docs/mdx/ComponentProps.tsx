@@ -1,11 +1,16 @@
 import { ElementsPlusMono } from "~/components/icons";
 
 type ComponentPropsProps = {
-  radixName: string;
+  additionalPropsFrom?: string;
+  additionalPropsLink?: string;
   children: React.ReactNode;
 };
 
-function ComponentProps({ radixName, children }: ComponentPropsProps) {
+function ComponentProps({
+  additionalPropsFrom,
+  additionalPropsLink,
+  children,
+}: ComponentPropsProps) {
   return (
     <div className="mb-6 mt-6">
       <div id="props" className="text-sm font-medium text-slate-500">
@@ -17,12 +22,8 @@ function ComponentProps({ radixName, children }: ComponentPropsProps) {
           <ElementsPlusMono className="h-4 w-4 flex-shrink-0" />
           <span className="ml-2 text-sm font-medium text-slate-700">
             Plus all props from{" "}
-            <a
-              href={`https://www.radix-ui.com/primitives/docs/components/${radixName}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Radix UI {radixName}
+            <a href={additionalPropsLink} target="_blank" rel="noreferrer">
+              {additionalPropsFrom}
             </a>
           </span>
         </div>

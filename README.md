@@ -16,5 +16,6 @@ This means that even in areas with poor internet connectivity, users can still i
 ## Current Components
 
 - Tabs ✅
-- Image (WIP)
+- Image ✅
+- Tooltip (WIP)
 - ...

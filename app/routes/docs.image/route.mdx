@@ -1,0 +1,50 @@
+---
+meta:
+  - { title: Image }
+  - { description: }
+headers:
+  Cache-Control: no-cache
+---
+
+import { ContentLayout, MainContentLayout, ArticleLayout, PreviousNextContent, TableOfContents, CodeBlock, ComponentDemo, ComponentIntro, ComponentProps } from "~/routes/docs/mdx";
+import { Image, imageCode, ImageProps, imageAnatomy } from './Image'
+
+<ContentLayout>
+  <MainContentLayout>
+    <ArticleLayout 
+      section="Components" 
+      title="Image" 
+      description='Image helps you display the image in an optimal manner. By default, it waits up to 5 seconds (configurable) for an image resource to fully load before displaying it, mitigating display issues with certain formats like baseline JPEGs. If loading exceeds 5 seconds, the component will display the partially-loaded image anyway to indicate progress.'
+      forComponent
+    >
+      <ComponentIntro>
+        <ComponentDemo code={imageCode}>
+          <Image />
+        </ComponentDemo>
+        <ComponentProps additionalPropsFrom='HTML <img>' additionalPropsLink='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes'>
+          <ImageProps />
+        </ComponentProps>
+      </ComponentIntro>
+
+      ## Usage
+
+      <CodeBlock>{imageAnatomy}</CodeBlock>
+
+      ## Behaviors
+
+      There is no difference in behavior between the hydrated and unhydrated modes. 
+      
+      A timer is set when the HTML is parsed. By default, if the image fully loads within 5 seconds (configurable), it will be displayed all at once. This approach helps to prevent display issues associated with certain image formats, such as baseline JPEGs. 
+      
+      If the loading time exceeds 5 seconds, the partially-loaded image will be displayed regardless of how much data has been loaded. This ensures that users are not stuck viewing the placeholder, keeping them informed about the image's loading progress.
+
+    </ArticleLayout>
+    <PreviousNextContent 
+      previous={{title: 'Tabs', href: '/docs/tabs'}}
+    />
+  </MainContentLayout>
+  <TableOfContents headings={[
+    {title: 'Usage', id: 'usage'},
+    {title: 'Behaviors', id: 'behaviors'},
+  ]}/>
+</ContentLayout>

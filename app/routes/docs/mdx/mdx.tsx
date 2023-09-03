@@ -136,7 +136,7 @@ function TableOfContents({ headings }: TableOfContentProps) {
   const { hash } = useLocation();
 
   return (
-    <div className="top-0 hidden xl:sticky xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
+    <div className="top-0 hidden xl:sticky xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:min-w-[248px] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
       <nav aria-labelledby="on-this-page-title" className="w-56">
         {headings.length > 0 && (
           <>
@@ -177,8 +177,8 @@ type CodeBlockProps = {
 
 function CodeBlock({ children }: CodeBlockProps) {
   return (
-    <div className="not-prose mt-3 max-h-[500px] w-full overflow-x-auto rounded-md border border-slate-200 py-4">
-      <pre className="whitespace-pre-wrap">
+    <div className="not-prose mt-3 max-h-[500px] w-full max-w-[718px] overflow-x-auto rounded-md border border-slate-200 py-4 2xl:max-w-[776px]">
+      <pre>
         <code className="block text-sm">{children}</code>
       </pre>
     </div>

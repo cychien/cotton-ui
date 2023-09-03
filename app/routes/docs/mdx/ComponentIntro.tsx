@@ -1,6 +1,7 @@
 import { createContext, useLocalStorage } from "~/utils";
 
 type TabsContextType = {
+  hasHydrationToggle: boolean;
   isHydrated: boolean;
   setIsHydrated: (isHydrated: boolean) => void;
 };
@@ -11,17 +12,23 @@ const [ComponentDemoContextProvider, useComponentDemoContext] =
   });
 
 type ComponentIntroProps = {
+  hasHydrationToggle?: boolean;
   children: React.ReactNode;
 };
 
-function ComponentIntro({ children }: ComponentIntroProps) {
+function ComponentIntro({
+  hasHydrationToggle = false,
+  children,
+}: ComponentIntroProps) {
   const [isHydrated, setIsHydrated] = useLocalStorage<boolean>(
     "simulate-is-hydrated",
     true
   );
 
   return (
-    <ComponentDemoContextProvider value={{ isHydrated, setIsHydrated }}>
+    <ComponentDemoContextProvider
+      value={{ hasHydrationToggle, isHydrated, setIsHydrated }}
+    >
       <div children={children} />
     </ComponentDemoContextProvider>
   );
