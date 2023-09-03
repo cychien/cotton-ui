@@ -18,7 +18,7 @@
     "wrangler": "wrangler pages dev ./public"
   },
   "dependencies": {
-    "@cychien/cotton-ui": "^0.1.1",
+    "@cychien/cotton-ui": "0.x",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.3",
     "@remix-run/cloudflare": "^1.15.0",
