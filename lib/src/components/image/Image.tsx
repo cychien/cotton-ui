@@ -26,59 +26,71 @@ const ImagePrimitive = React.forwardRef<ImageRef, ImageProps>(
         ${props.sizes ? `sizes="${props.sizes}"` : ""}
         ${props.decoding ? `decoding="${props.decoding}"` : ""}
         ${props.loading ? `loading="${props.loading}"` : ""}
-        class="${cn(className, "absolute inset-0 opacity-0")}"
-        onload="document.getElementById('${imageId}').classList.remove('opacity-0')"
+        style="position:absolute; inset: 0;"
+        class="${cn(className, "cotton-opacity-0")}"
+        onload="document.getElementById('${imageId}').classList.remove('cotton-opacity-0')"
       />
     `;
 
     const switchToNativeModeIfWaitingTooLongScript = `
       <script>
         setTimeout(function() {
-          document.getElementById('${imageId}').classList.remove('opacity-0');
+          document.getElementById('${imageId}').classList.remove('cotton-opacity-0');
         }, ${maxJSWaitTime * 1000});
       </script>
     `;
 
     return (
-      <div className="relative">
-        {placeholder && (
-          <img
-            alt={props.alt}
-            src={placeholder}
-            width={props.width}
-            height={props.height}
-            className={className}
-          />
-        )}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: imgElementForDetectingLoaded,
-          }}
-        />
-        <img
-          ref={imageRef}
-          id={imageId}
-          alt={props.alt}
-          className={cn(
-            className,
-            "absolute inset-0 opacity-0 transition-opacity"
+      <div>
+        <style>{`.cotton-opacity-0 {opacity: 0;}`}</style>
+        <div style={{ position: "relative" }}>
+          {placeholder && (
+            <img
+              alt={props.alt}
+              src={placeholder}
+              width={props.width}
+              height={props.height}
+              className={className}
+            />
           )}
-          suppressHydrationWarning
-          {...props}
-        />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: switchToNativeModeIfWaitingTooLongScript,
-          }}
-        />
-        <noscript>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: imgElementForDetectingLoaded,
+            }}
+          />
           <img
             ref={imageRef}
+            id={imageId}
             alt={props.alt}
-            className={cn(className, "absolute inset-0 transition-opacity")}
+            style={{
+              position: "absolute",
+              inset: 0,
+              transitionProperty: "opacity",
+              transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+              transitionDuration: "150ms",
+            }}
+            className={cn(className, "cotton-opacity-0")}
+            suppressHydrationWarning
             {...props}
           />
-        </noscript>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: switchToNativeModeIfWaitingTooLongScript,
+            }}
+          />
+          <noscript>
+            <img
+              ref={imageRef}
+              alt={props.alt}
+              style={{
+                position: "absolute",
+                inset: 0,
+              }}
+              className={className}
+              {...props}
+            />
+          </noscript>
+        </div>
       </div>
     );
   }
