@@ -28,7 +28,7 @@ const ImagePrimitive = React.forwardRef<ImageRef, ImageProps>(
         ${props.loading ? `loading="${props.loading}"` : ""}
         style="position:absolute; inset: 0;"
         class="${cn(className, "cotton-opacity-0")}"
-        onload="document.getElementById('${imageId}').classList.remove('cotton-opacity-0')"
+        onload="setTimeout(function(){document.getElementById('${imageId}').classList.remove('cotton-opacity-0')}, 0)"
       />
     `;
 
@@ -53,11 +53,6 @@ const ImagePrimitive = React.forwardRef<ImageRef, ImageProps>(
               className={className}
             />
           )}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: imgElementForDetectingLoaded,
-            }}
-          />
           <img
             ref={imageRef}
             id={imageId}
@@ -72,6 +67,11 @@ const ImagePrimitive = React.forwardRef<ImageRef, ImageProps>(
             className={cn(className, "cotton-opacity-0")}
             suppressHydrationWarning
             {...props}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: imgElementForDetectingLoaded,
+            }}
           />
           <div
             dangerouslySetInnerHTML={{
