@@ -34,10 +34,21 @@ function TabsProps() {
         />
       </ComponentProp>
       <ComponentProp
+        name="value"
+        type="string"
+        description="The selected tab. Used when you want controlled tabs"
+      >
+        <input
+          type="text"
+          className="form-input block w-[180px] cursor-not-allowed rounded-md border-slate-300 text-sm shadow-sm read-only:bg-slate-50 focus:border-slate-200 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+          value="cotton"
+          readOnly
+        />
+      </ComponentProp>
+      <ComponentProp
         name="defaultValue"
         type="string"
         description="The default selected tab."
-        required
       >
         <input
           type="text"

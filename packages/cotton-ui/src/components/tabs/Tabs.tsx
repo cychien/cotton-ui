@@ -3,23 +3,6 @@ import * as React from "react";
 
 import { composeURL, createContext } from "../../utils";
 
-// type UseTabsArgs = {
-//   id: string;
-//   url: string;
-//   defaultValue: string;
-// };
-
-// function useTabs({ id, url, defaultValue }: UseTabsArgs) {
-//   const search = url.split("?")[1];
-//   const searchParams = new URLSearchParams(search);
-
-//   const [value, setValue] = React.useState(
-//     () => searchParams.get(id) || defaultValue
-//   );
-
-//   return { id, url, value, onValueChange: setValue };
-// }
-
 type TabsContextType = {
   id: string;
   url: string;
