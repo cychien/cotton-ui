@@ -1,27 +1,20 @@
+import {
+  TabsContentPrimitive,
+  TabsListPrimitive,
+  TabsPrimitive,
+  TabsTriggerPrimitive,
+} from "@cychien/cotton-ui";
 import { useLocation } from "@remix-run/react";
 import * as React from "react";
 
 import { useComponentDemoContext } from "~/routes/docs/mdx";
 import { cn } from "~/utils";
 
-import {
-  TabsContentPrimitive,
-  TabsListPrimitive,
-  TabsPrimitive,
-  TabsTriggerPrimitive,
-  useTabs,
-} from "../../../../lib/src/components/tabs";
-
 function TabsComponent() {
   const { pathname, search } = useLocation();
-  const tabsProps = useTabs({
-    id: "tabs-demo",
-    url: pathname + search,
-    defaultValue: "cotton",
-  });
 
   return (
-    <Tabs {...tabsProps}>
+    <Tabs id="tabs-demo" url={pathname + search} defaultValue="cotton">
       <TabsList>
         <TabsTrigger value="cotton">Cotton</TabsTrigger>
         <TabsTrigger value="linen">Linen</TabsTrigger>
@@ -38,8 +31,7 @@ function TabsComponent() {
   );
 }
 
-interface TabsProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive> {}
+type TabsProps = React.ComponentPropsWithoutRef<typeof TabsPrimitive>;
 type TabsRef = React.ElementRef<typeof TabsPrimitive>;
 
 const Tabs = React.forwardRef<TabsRef, TabsProps>(
@@ -57,8 +49,7 @@ const Tabs = React.forwardRef<TabsRef, TabsProps>(
 );
 Tabs.displayName = "Tabs";
 
-interface TabsListProps
-  extends React.ComponentPropsWithoutRef<typeof TabsListPrimitive> {}
+type TabsListProps = React.ComponentPropsWithoutRef<typeof TabsListPrimitive>;
 type TabsListRef = React.ElementRef<typeof TabsListPrimitive>;
 
 const TabsList = React.forwardRef<TabsListRef, TabsListProps>(
@@ -77,8 +68,9 @@ const TabsList = React.forwardRef<TabsListRef, TabsListProps>(
 );
 TabsList.displayName = "TabsList";
 
-interface TabsTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof TabsTriggerPrimitive> {}
+type TabsTriggerProps = React.ComponentPropsWithoutRef<
+  typeof TabsTriggerPrimitive
+>;
 type TabsTriggerRef = React.ElementRef<typeof TabsTriggerPrimitive>;
 
 const TabsTrigger = React.forwardRef<TabsTriggerRef, TabsTriggerProps>(
@@ -99,8 +91,9 @@ const TabsTrigger = React.forwardRef<TabsTriggerRef, TabsTriggerProps>(
 );
 TabsTrigger.displayName = "TabsTrigger";
 
-interface TabsContentProps
-  extends React.ComponentPropsWithoutRef<typeof TabsContentPrimitive> {}
+type TabsContentProps = React.ComponentPropsWithoutRef<
+  typeof TabsContentPrimitive
+>;
 type TabsContentRef = React.ElementRef<typeof TabsContentPrimitive>;
 
 const TabsContent = React.forwardRef<TabsContentRef, TabsContentProps>(

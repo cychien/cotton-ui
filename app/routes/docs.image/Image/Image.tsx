@@ -1,4 +1,4 @@
-import { ImagePrimitive as Image } from "../../../../lib/src/components/image";
+import { ImagePrimitive as Image } from "@cychien/cotton-ui";
 
 function ImageComponent() {
   return (

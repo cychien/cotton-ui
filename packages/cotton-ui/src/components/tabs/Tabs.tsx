@@ -3,27 +3,26 @@ import * as React from "react";
 
 import { composeURL, createContext } from "../../utils";
 
-type UseTabsArgs = {
-  id: string;
-  url: string;
-  defaultValue: string;
-};
+// type UseTabsArgs = {
+//   id: string;
+//   url: string;
+//   defaultValue: string;
+// };
 
-function useTabs({ id, url, defaultValue }: UseTabsArgs) {
-  const search = url.split("?")[1];
-  const searchParams = new URLSearchParams(search);
+// function useTabs({ id, url, defaultValue }: UseTabsArgs) {
+//   const search = url.split("?")[1];
+//   const searchParams = new URLSearchParams(search);
 
-  const [value, setValue] = React.useState(
-    () => searchParams.get(id) || defaultValue
-  );
+//   const [value, setValue] = React.useState(
+//     () => searchParams.get(id) || defaultValue
+//   );
 
-  return { id, url, value, onValueChange: setValue };
-}
+//   return { id, url, value, onValueChange: setValue };
+// }
 
 type TabsContextType = {
   id: string;
   url: string;
-  value: string;
 };
 
 const [TabsContextProvider, useTabsContext] = createContext<TabsContextType>({
@@ -35,15 +34,37 @@ interface TabsProps
   extends React.ComponentPropsWithoutRef<typeof RadixTabsPrimitive.Root> {
   id: string;
   url: string;
-  value: string;
   isHydrtionDisabled?: boolean;
 }
 
 const TabsPrimitive = React.forwardRef<TabsRef, TabsProps>(
-  ({ id, url, value, isHydrtionDisabled, ...props }, ref) => {
+  (
+    {
+      id,
+      url,
+      value: valueProps,
+      defaultValue: defaultValueProps,
+      isHydrtionDisabled,
+      ...props
+    },
+    ref
+  ) => {
+    const search = url.split("?")[1];
+    const searchParams = new URLSearchParams(search);
+    const defaultValue = valueProps
+      ? undefined
+      : searchParams.get(id) || defaultValueProps;
+    const value = valueProps ? valueProps : undefined;
+
     return (
-      <TabsContextProvider value={{ id, url, value }}>
-        <RadixTabsPrimitive.Root ref={ref} id={id} value={value} {...props} />
+      <TabsContextProvider value={{ id, url }}>
+        <RadixTabsPrimitive.Root
+          ref={ref}
+          id={id}
+          value={value}
+          defaultValue={defaultValue}
+          {...props}
+        />
       </TabsContextProvider>
     );
   }
@@ -95,5 +116,4 @@ export {
   TabsListPrimitive,
   TabsPrimitive,
   TabsTriggerPrimitive,
-  useTabs,
 };

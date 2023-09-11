@@ -1,16 +1,15 @@
+import {
+  TabsContentPrimitive,
+  TabsListPrimitive,
+  TabsPrimitive,
+  TabsTriggerPrimitive,
+} from "@cychien/cotton-ui";
 import { useLocation } from "@remix-run/react";
 import * as React from "react";
 
 import { Switch } from "~/components/site/Switch";
 import { cn, useHydrated } from "~/utils";
 
-import {
-  TabsContentPrimitive,
-  TabsListPrimitive,
-  TabsPrimitive,
-  TabsTriggerPrimitive,
-  useTabs,
-} from "../../../../lib/src/components/tabs";
 import { useComponentDemoContext } from "./ComponentIntro";
 
 type ComponentDemoProps = {
@@ -20,18 +19,13 @@ type ComponentDemoProps = {
 
 function ComponentDemo({ code, children }: ComponentDemoProps) {
   const { pathname, search } = useLocation();
-  const tabsProps = useTabs({
-    id: "demo",
-    url: pathname + search,
-    defaultValue: "preview",
-  });
   const { hasHydrationToggle, isHydrated, setIsHydrated } =
     useComponentDemoContext();
   const hydrated = useHydrated();
 
   return (
     <div className="not-prose">
-      <Tabs {...tabsProps}>
+      <Tabs id="demo" url={pathname + search} defaultValue="preview">
         <TabsList>
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
@@ -76,8 +70,7 @@ function ComponentDemo({ code, children }: ComponentDemoProps) {
   );
 }
 
-interface TabsProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive> {}
+type TabsProps = React.ComponentPropsWithoutRef<typeof TabsPrimitive>;
 type TabsRef = React.ElementRef<typeof TabsPrimitive>;
 
 const Tabs = React.forwardRef<TabsRef, TabsProps>(
@@ -87,8 +80,7 @@ const Tabs = React.forwardRef<TabsRef, TabsProps>(
 );
 Tabs.displayName = "Tabs";
 
-interface TabsListProps
-  extends React.ComponentPropsWithoutRef<typeof TabsListPrimitive> {}
+type TabsListProps = React.ComponentPropsWithoutRef<typeof TabsListPrimitive>;
 type TabsListRef = React.ElementRef<typeof TabsListPrimitive>;
 
 const TabsList = React.forwardRef<TabsListRef, TabsListProps>(
@@ -107,8 +99,9 @@ const TabsList = React.forwardRef<TabsListRef, TabsListProps>(
 );
 TabsList.displayName = "TabsList";
 
-interface TabsTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof TabsTriggerPrimitive> {}
+type TabsTriggerProps = React.ComponentPropsWithoutRef<
+  typeof TabsTriggerPrimitive
+>;
 type TabsTriggerRef = React.ElementRef<typeof TabsTriggerPrimitive>;
 
 const TabsTrigger = React.forwardRef<TabsTriggerRef, TabsTriggerProps>(
@@ -127,8 +120,9 @@ const TabsTrigger = React.forwardRef<TabsTriggerRef, TabsTriggerProps>(
 );
 TabsTrigger.displayName = "TabsTrigger";
 
-interface TabsContentProps
-  extends React.ComponentPropsWithoutRef<typeof TabsContentPrimitive> {}
+type TabsContentProps = React.ComponentPropsWithoutRef<
+  typeof TabsContentPrimitive
+>;
 type TabsContentRef = React.ElementRef<typeof TabsContentPrimitive>;
 
 const TabsContent = React.forwardRef<TabsContentRef, TabsContentProps>(
